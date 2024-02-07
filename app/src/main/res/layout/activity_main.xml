@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -10,7 +9,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/status_container"
         android:layout_width="match_parent"
-        android:layout_height="64dp"
+        android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
@@ -44,34 +43,56 @@
         app:layout_constraintTop_toBottomOf="@id/status_container" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/radio_container"
+        android:id="@+id/passwords"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@id/separator_line_1">
 
-        <RadioGroup
-            android:layout_width="match_parent"
+        <TextView
+            android:id="@+id/by_specifier"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toTopOf="parent">
+            android:background="@color/gray"
+            android:gravity="center"
+            android:padding="8dp"
+            android:text="By Specifier"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/by_suggestions"
+            app:layout_constraintHorizontal_weight="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-            <RadioButton
-                android:id="@+id/radio_suggestion"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="32dp"
-                android:checked="true"
-                android:text="Connect by WifiNetworkSuggestion (Internet)" />
-
-            <RadioButton
-                android:id="@+id/radio_specifier"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="32dp"
-                android:text="Connect by WifiNetworkSpecifier (P2P)" />
-
-        </RadioGroup>
+        <TextView
+            android:id="@+id/by_suggestions"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@color/purple_200"
+            android:gravity="center"
+            android:padding="8dp"
+            android:text="By Suggestions"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_weight="0.5"
+            app:layout_constraintStart_toEndOf="@id/by_specifier"
+            app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <View
+        android:id="@+id/separator_line_3"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginHorizontal="16dp"
+        android:background="@color/gray"
+        app:layout_constraintTop_toBottomOf="@id/passwords" />
+
+    <TextView
+        android:id="@+id/connected_to"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:text="Connected to:"
+        app:layout_constraintTop_toBottomOf="@id/separator_line_3" />
 
     <View
         android:id="@+id/separator_line_2"
@@ -79,14 +100,14 @@
         android:layout_height="1dp"
         android:layout_marginHorizontal="16dp"
         android:background="@color/gray"
-        app:layout_constraintTop_toBottomOf="@id/radio_container" />
+        app:layout_constraintTop_toBottomOf="@id/connected_to" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/list_container"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginHorizontal="32dp"
-        android:layout_marginVertical="32dp"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginVertical="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@id/separator_line_2">
 
@@ -100,5 +121,16 @@
             app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end|bottom"
+        android:layout_margin="16dp"
+        android:contentDescription="@null"
+        android:src="@android:drawable/ic_dialog_info"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
